@@ -1,7 +1,9 @@
 package com.erwinner.stream;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -39,18 +41,10 @@ public class MainFilter {
 		List<Persona> resultList = personas.stream().filter(persona -> persona.getEdad()>=18).limit(3).collect(Collectors.toList());
 		resultList.forEach(System.out::println);
 		
-		Predicate<String> startWithE = x -> x.startsWith("E");
-		Predicate<Integer> mayoDeEdad= x -> x >=18;
-		
 		personas.stream().filter(persona -> {
 			return  persona.getEdad()<18 &&   persona.getNombre().startsWith("E");
 		}).limit(3).forEach(System.out::println);
 		
-		System.out.println("\n");
-		
-		/*
-		 * 
-		 * */
 		
 	}	 
 

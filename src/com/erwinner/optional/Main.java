@@ -25,7 +25,7 @@ public class Main {
 	public static Optional<String> buscarNombre(String nombre){
 		//COn el filter(Sentencia) se filtran solo aquellos datos que cumplan la sentencia definida
 		//Con el findFirst() solo obtenemos el primer valor
-		return listNombre.stream().filter(x -> x.equalsIgnoreCase(nombre)).findFirst();
+		return listNombre.stream().filter(x -> x.equalsIgnoreCase(nombre)).findFirst();//.orElse("Valor Default")
 	}
 
 	public static void main(String[] args) {
@@ -35,8 +35,11 @@ public class Main {
 		if(result.isPresent()) { // con el isPresent() preguntamos si hay una objetos <T> (String en este caso) en la respuesta, [True oFalse]
 			System.out.println("Se encontró el nomnbre de: "+nombre);
 		}else {
-			System.out.println("El nombre: "+nombre+", no existe");
+			String orElse = result.orElse("El nombre: "+nombre+", no existe");
+			System.out.println(orElse);
 		}
+		
+		
 		
 		/* El orElseThrow(Tipo de Excepcion) esto regresa el error IllegalStateException por que así se ha definido 
 		que se maneje ese error en caso de que no sea exitoso la respuesta*/
